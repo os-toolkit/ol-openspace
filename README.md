@@ -2,6 +2,10 @@
 
 ![Ordnance Survey's OpenSpace Map Tiles](https://github.com/os-toolkit/ol-openspace/blob/master/assets/imgs/openspace-screenshot.png "Ordnance Survey's OpenSpace Map Tiles")
 
+### About
+
+The Ordnance Survey OpenSpace Map Tile Service provides a set of free map layers to enable developers to create online and mobile applications using Ordnance Survey maps. This plugin allows you to easily embed Ordnance Survey maps in your web project.
+
 ### Setup Instructions &amp; Options
 
 We've tried to make this as painless as possible for you, so you can get on with your other website duties.
