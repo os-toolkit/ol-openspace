@@ -1,24 +1,24 @@
-## H2 OpenLayers 2 WMS Layer with Ordnance Survey's OpenSpace Map Tile Service
+## OpenLayers 2 WMS Layer with Ordnance Survey's OpenSpace Map Tile Service
 
 ![Ordnance Survey's OpenSpace Map Tiles](https://github.com/os-toolkit/ol-openspace/blob/master/assets/imgs/openspace-screenshot.png "Ordnance Survey's OpenSpace Map Tiles")
 
-### Instructions &amp; Options
+### Setup Instructions &amp; Options
 
-We've made this as painless as possible for you, so you can get on with your website.
+We've tried to make this as painless as possible for you, so you can get on with your other website duties.
 
-###### Requirements
+#### Requirements
 
 1. An API key (yes, it's a pain but you need one)
-2. OpenLayers 2 - we use `2.13.1` for our demo
+2. OpenLayers 2 - we use `v2.13.1` for our demo
 3. Our custom OpenLayers WMS Layer (`OpenLayers.Layer.OpenSpace`), see `assets/js/openspace.js`
 
 Viewing our `demo.html` page is the best way to learn how to implement the OpenSpace map tile service into your website. But for clarity, we'll break it down for you below.
 
-##### Retain an API key
+#### Retain an API key
 
-Before you continue. Please [apply for an API key](https://openspaceregister.ordnancesurvey.co.uk/osmapapi/register.do) if you haven't done so already. Once you've received your API key you can proceed to the next section.
+Before you continue, please [apply for an API key](https://openspaceregister.ordnancesurvey.co.uk/osmapapi/register.do) if you haven't done so already. Once you've received your API key you can proceed to the next section.
 
-##### Include CSS
+#### Include CSS
 
 Include our stylesheet (`assets/css/style.css`). The CSS is relatively basic, it provides a map wrapper and inside of that the map element. It applies a width and height to the map, which ensures the map displays correctly.
 
@@ -38,14 +38,16 @@ In particular, here's the following CSS for the copyright attribute, which tries
 
 Our CSS rules are up for grabs, so modify as you like. But remember the map **copyright attribution is required** for compliance with the service from Ordnance Survey.
 
-##### Include Scripts
+#### Include Scripts
 
 Next up, include the JavaScript into the HTML. We need OpenLayers 2 and the OpenSpace plugin:
 
-`<script src="http://openlayers.org/api/2.13.1/OpenLayers.js"></script>`
-`<script src="assets/js/openspace.js"></script>`
+```html
+<script src="http://openlayers.org/api/2.13.1/OpenLayers.js"></script>
+<script src="assets/js/openspace.js"></script>
+```
 
-##### Initialise
+#### Initialise
 
 And finally, like any other plugin, we need to initialise the plugin with some configuration options specific to your website. We put all this stuff inside of (`assets/js/init.js`).
 
@@ -95,7 +97,7 @@ var layer = new OpenLayers.Layer.OpenSpace({
 
 Your custom `params` and `options` will be included in the layer creation.
 
-Then finish up by adding the layer to the map with a centre position (using eastings and northings):
+Finish up by adding the layer to the map with a centre position (using eastings and northings):
 
 ```javascript
 map.addLayer( layer );
