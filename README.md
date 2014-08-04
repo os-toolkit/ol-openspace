@@ -22,6 +22,16 @@ Viewing our `demo.html` page is the best way to learn how to implement the OpenS
 
 Before you continue, please [apply for an API key](https://openspaceregister.ordnancesurvey.co.uk/osmapapi/register.do) if you haven't done so already. Once you've received your API key you can proceed to the next section.
 
+#### The HTML
+
+Along with the usual HTML to make up the document, we use the following:
+
+```html
+<div class="map-wrap">
+  <div id="js-map" class="map"></div>
+</div>
+```
+
 #### Include CSS
 
 Include our stylesheet (`assets/css/style.css`). The CSS is relatively basic, it provides a map wrapper and inside of that the map element. It applies a width and height to the map, which ensures the map displays correctly.
@@ -53,9 +63,9 @@ Next up, include the JavaScript into the HTML. We need OpenLayers 2 and the Open
 
 #### Initialise
 
-And finally, like any other plugin, we need to initialise the plugin with some configuration options specific to your website. We put all this stuff inside of (`assets/js/init.js`).
+Like any other plugin, we need to initialise the plugin with some configuration options specific to your website. We put all this stuff inside of (`assets/js/init.js`).
 
-Firstly, create an OpenLayers map instance. This is all standard OpenLayers syntax:
+Firstly, create an OpenLayers map instance. This is all standard OpenLayers 2 API syntax:
 
 ```javascript
 var gbBounds = new OpenLayers.Bounds( 0, 0, 700000, 1300000 );
@@ -67,7 +77,7 @@ var map = new OpenLayers.Map({
 });
 ```
 
-For good measure, we've set up the Great Britain bounds (`gbBounds`) and applied it to the new map instance to avoid the user dragging the map into un-tiled territory. We don't want them to get lost now, do we!?
+For good measure, we've set up the Great Britain bounds (`gbBounds`) and applied it to the new map instance to avoid the user dragging the map into un-tiled territory. We don't want them to get lost now, do we?!
 
 Now we initialise our OpenSpace plugin by passing a custom configuration object:
 
@@ -81,7 +91,7 @@ var layer = new OpenLayers.Layer.OpenSpace({
 
 - *Optionally* add a layer name into the `name` property. Defaults to 'OpenSpace' anyway
 - Insert your API key into the placeholder for the `apiKey` property. No default here.
-- Add your website into the `referrer` property. This is the **website URL that you registered** for use with your OpenSpace API key. When developing locally from the `file:///` protocol, you can change the referrer value to `file:///` and it'll work just the same. There is no default for referrer.
+- Add your website into the `referrer` property. This is the **website URL that you registered** for use with your OpenSpace API key. When developing locally from the `file:///` protocol, you can change the `referrer` value to `file:///` and it'll work just the same. There is no default for `referrer`.
 
 Just like any other OpenLayers WMS Layer, you can also pass a `params` and `options` object. For example:
 
